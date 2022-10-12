@@ -1,0 +1,28 @@
+<%= form_with(model: post) do |form| %>
+  
+  <% if post.errors.any? %>
+  <div data-controller="autohide">
+<div id="error" style="position:absolute; z-index: 2; right: 10px;">
+        <% post.errors.each do |error| %>
+          <%= error.full_message %>
+        <% end %>
+</div>
+</div>
+
+  <% end %>
+
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
